@@ -35,7 +35,9 @@ class _KeyPadState extends State<KeyPad> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.arrow_back),
+                  GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: const Icon(Icons.arrow_back)),
                   const SizedBox(
                     height: 20,
                   ),
@@ -49,7 +51,8 @@ class _KeyPadState extends State<KeyPad> {
                   Container(
                     decoration: BoxDecoration(
                         border: Border.all(width: 2, color: Colors.grey),
-                        borderRadius: const BorderRadius.all(Radius.circular(10))),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10))),
                     child: Row(
                       children: [
                         Padding(
@@ -132,7 +135,8 @@ class _KeyPadState extends State<KeyPad> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>  OtpScreen(phoneNumber: widget.phoneNumber),
+                              builder: (context) =>
+                                  OtpScreen(phoneNumber: widget.phoneNumber),
                             ));
                         BlocProvider.of<OtpBloc>(context).add(
                             SendOtpTrigger(phoneNumber: widget.phoneNumber));
