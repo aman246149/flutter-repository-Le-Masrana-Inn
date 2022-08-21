@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:practo/app/homepage/view/birthdayscreen.dart';
-import 'package:practo/app/homepage/view/genderpage.dart';
 
 import 'blocs/register/register_bloc.dart';
 
@@ -22,11 +21,11 @@ class _EmailScreenState extends State<EmailScreen> {
         body: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
                 colors: [
-                  const Color(0xFF2A3286),
-                  const Color(0xFF2A3286),
+                  Color(0xFF2A3286),
+                  Color(0xFF2A3286),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -53,24 +52,24 @@ class _EmailScreenState extends State<EmailScreen> {
                     ),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   "Hi",
                   style: TextStyle(
                       color: Colors.white.withOpacity(0.5), fontSize: 25),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   "What's your email address?",
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
-                Spacer(),
+                const Spacer(),
                 TextField(
                   controller: controller,
                   autofocus: true,
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     hintText: "Email",
                     hintStyle: TextStyle(
@@ -86,20 +85,20 @@ class _EmailScreenState extends State<EmailScreen> {
                             color: Colors.white.withOpacity(0.4), width: 2)),
                   ),
                 ),
-                Spacer(
+                const Spacer(
                   flex: 5,
                 ),
                 MaterialButton(
                   minWidth: double.infinity,
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10))),
-                  color: Color(0xff6A70AA),
+                  color: const Color(0xff6A70AA),
                   onPressed: () {
                     if (controller.text.isNotEmpty) {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => BirthDayScreen(),
+                            builder: (context) => const BirthDayScreen(),
                           ));
                            BlocProvider.of<RegisterBloc>(context, listen: false)
                           .email = controller.text;
@@ -107,8 +106,8 @@ class _EmailScreenState extends State<EmailScreen> {
                       controller.text = "enter your email please";
                     }
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.all(18.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(18.0),
                     child: Text(
                       "Next",
                       style: TextStyle(color: Colors.white),

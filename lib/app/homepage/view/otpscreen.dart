@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:practo/app/homepage/view/blocs/login/login_bloc.dart';
 import 'package:practo/app/homepage/view/blocs/otp/otp_bloc.dart';
 import 'package:practo/app/homepage/view/namescreen.dart';
 
 class OtpScreen extends StatefulWidget {
-  const OtpScreen({Key? key}) : super(key: key);
+  const OtpScreen({Key? key, required this.phoneNumber}) : super(key: key);
+  final String phoneNumber;
 
   @override
   State<OtpScreen> createState() => _OtpScreenState();
@@ -24,7 +26,7 @@ class _OtpScreenState extends State<OtpScreen> {
             if (state is OtpSuccessState) {
               print(state.otp);
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                duration: Duration(milliseconds: 500),
+                duration: const Duration(milliseconds: 500),
                 content: Text(state.otp),
                 behavior: SnackBarBehavior.floating,
                 shape: RoundedRectangleBorder(
@@ -50,18 +52,18 @@ class _OtpScreenState extends State<OtpScreen> {
                     children: [
                       GestureDetector(
                           onTap: () => Navigator.pop(context),
-                          child: Icon(Icons.arrow_back)),
-                      SizedBox(
+                          child: const Icon(Icons.arrow_back)),
+                      const SizedBox(
                         height: 20,
                       ),
                       const Text("Enter the 6-digit OTP sent to",
                           style: TextStyle(fontSize: 18)),
-                      const Text(
-                        "9997034974",
-                        style: TextStyle(
+                      Text(
+                        widget.phoneNumber,
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       OtpTextField(
@@ -76,7 +78,8 @@ class _OtpScreenState extends State<OtpScreen> {
                         },
                         autoFocus: true,
                         focusedBorderColor: Colors.black,
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
                         //runs when every textfield is filled
                         onSubmit: (String verificationCode) {
                           print(verificationCode);
@@ -90,10 +93,14 @@ class _OtpScreenState extends State<OtpScreen> {
                             contoller[3]!.text = 4.toString();
                             contoller[4]!.text = 5.toString();
                             contoller[5]!.text = 6.toString();
+                            BlocProvider.of<LoginBloc>(context, listen: false)
+                                .add(LoginOTPevent(
+                                    phoneNumber: widget.phoneNumber,
+                                    otp: "123456"));
                           }
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       TextButton(
@@ -116,19 +123,19 @@ class _OtpScreenState extends State<OtpScreen> {
                       SizedBox(
                         width: double.infinity,
                         child: MaterialButton(
-                          shape: RoundedRectangleBorder(
+                          shape: const RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10))),
-                          color: Color(0xffB4B4BD),
+                          color: const Color(0xffB4B4BD),
                           onPressed: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => NameScreen(),
+                                  builder: (context) => const NameScreen(),
                                 ));
                           },
-                          child: Padding(
-                            padding: const EdgeInsets.all(18.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(18.0),
                             child: Text(
                               "Continue",
                               style: TextStyle(color: Colors.white),

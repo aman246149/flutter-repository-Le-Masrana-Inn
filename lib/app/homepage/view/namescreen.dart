@@ -19,11 +19,11 @@ class _NameScreenState extends State<NameScreen> {
         body: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
                 colors: [
-                  const Color(0xFF2A3286),
-                  const Color(0xFF2A3286),
+                  Color(0xFF2A3286),
+                  Color(0xFF2A3286),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -37,23 +37,23 @@ class _NameScreenState extends State<NameScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Spacer(),
+                const Spacer(),
                 Text(
                   "Hi",
                   style: TextStyle(
                       color: Colors.white.withOpacity(0.5), fontSize: 25),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   "What's your name?",
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
-                Spacer(),
+                const Spacer(),
                 TextField(
                   controller: controller,
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                   autofocus: true,
                   decoration: InputDecoration(
                     hintText: "Enter Full Name",
@@ -70,7 +70,7 @@ class _NameScreenState extends State<NameScreen> {
                             color: Colors.white.withOpacity(0.4), width: 2)),
                   ),
                 ),
-                Spacer(
+                const Spacer(
                   flex: 5,
                 ),
                 Row(
@@ -79,22 +79,22 @@ class _NameScreenState extends State<NameScreen> {
                       value: true,
                       onChanged: (value) {},
                     ),
-                    Text(
+                    const Text(
                         "Receive relevant offers and promotional \ncommunication from practo",
                         style: TextStyle(color: Colors.white, fontSize: 16))
                   ],
                 ),
                 MaterialButton(
                   minWidth: double.infinity,
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10))),
-                  color: Color(0xff6A70AA),
+                  color: const Color(0xff6A70AA),
                   onPressed: () {
                     if (controller.text.isNotEmpty) {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => GenderPage(),
+                            builder: (context) => const GenderPage(),
                           ));
                       BlocProvider.of<RegisterBloc>(context, listen: false)
                           .name = controller.text;
@@ -102,8 +102,8 @@ class _NameScreenState extends State<NameScreen> {
                       controller.text = "please enter your name";
                     }
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.all(18.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(18.0),
                     child: Text(
                       "Next",
                       style: TextStyle(color: Colors.white),

@@ -20,11 +20,11 @@ class _GenderPageState extends State<GenderPage> {
         body: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
                 colors: [
-                  const Color(0xFF2A3286),
-                  const Color(0xFF2A3286),
+                  Color(0xFF2A3286),
+                  Color(0xFF2A3286),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -38,8 +38,8 @@ class _GenderPageState extends State<GenderPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Spacer(),
-                Center(
+                const Spacer(),
+                const Center(
                   child: Text(
                     "STEP 1/3",
                     style: TextStyle(
@@ -48,11 +48,11 @@ class _GenderPageState extends State<GenderPage> {
                         fontWeight: FontWeight.w500),
                   ),
                 ),
-                Spacer(
+                const Spacer(
                   flex: 2,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(18.0),
+                const Padding(
+                  padding: EdgeInsets.all(18.0),
                   child: Text(
                     "Which gender do you \nidentify with?",
                     style: TextStyle(
@@ -61,7 +61,7 @@ class _GenderPageState extends State<GenderPage> {
                         fontWeight: FontWeight.w500),
                   ),
                 ),
-                Spacer(
+                const Spacer(
                   flex: 3,
                 ),
                 Container(
@@ -72,6 +72,9 @@ class _GenderPageState extends State<GenderPage> {
                     child: GroupButton(
                       buttonBuilder: (bool selected, String value, context) {
                         return Container(
+                          decoration: BoxDecoration(
+                              color: selected ? const Color(0XFF2A3286) : null,
+                              border: Border.all(width: 1, color: Colors.grey)),
                           child: Padding(
                             padding: const EdgeInsets.all(18.0),
                             child: Text(
@@ -82,9 +85,6 @@ class _GenderPageState extends State<GenderPage> {
                                   fontSize: 15),
                             ),
                           ),
-                          decoration: BoxDecoration(
-                              color: selected ? Color(0XFF2A3286) : null,
-                              border: Border.all(width: 1, color: Colors.grey)),
                         );
                       },
                       isRadio: false,
@@ -95,14 +95,14 @@ class _GenderPageState extends State<GenderPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => EmailScreen()));
+                                builder: (context) => const EmailScreen()));
                       },
-                      buttons: [
+                      buttons: const [
                         "Male",
                         "Female",
                         "Other",
                       ],
-                      options: GroupButtonOptions(),
+                      options: const GroupButtonOptions(),
                     ),
                   ),
                 )

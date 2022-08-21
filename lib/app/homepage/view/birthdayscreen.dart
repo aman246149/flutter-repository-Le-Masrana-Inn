@@ -20,11 +20,11 @@ class _BirthDayScreenState extends State<BirthDayScreen> {
         body: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
                 colors: [
-                  const Color(0xFF2A3286),
-                  const Color(0xFF2A3286),
+                  Color(0xFF2A3286),
+                  Color(0xFF2A3286),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -38,8 +38,8 @@ class _BirthDayScreenState extends State<BirthDayScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Spacer(),
-                Center(
+                const Spacer(),
+                const Center(
                   child: Text(
                     "STEP 2/3",
                     style: TextStyle(
@@ -48,7 +48,7 @@ class _BirthDayScreenState extends State<BirthDayScreen> {
                         fontWeight: FontWeight.w500),
                   ),
                 ),
-                Spacer(
+                const Spacer(
                   flex: 2,
                 ),
                 Padding(
@@ -64,10 +64,10 @@ class _BirthDayScreenState extends State<BirthDayScreen> {
                             fontSize: 30,
                             fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Text(
+                      const Text(
                         "When's your birthday?",
                         style: TextStyle(
                             color: Colors.white,
@@ -77,7 +77,7 @@ class _BirthDayScreenState extends State<BirthDayScreen> {
                     ],
                   ),
                 ),
-                Spacer(
+                const Spacer(
                   flex: 3,
                 ),
                 Container(
@@ -101,9 +101,9 @@ class _BirthDayScreenState extends State<BirthDayScreen> {
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: MaterialButton(
-                        shape: RoundedRectangleBorder(
+                        shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(8))),
-                        color: Color(0xff1ABEF1),
+                        color: const Color(0xff1ABEF1),
                         onPressed: () {
                           BlocProvider.of<RegisterBloc>(context, listen: false)
                               .add(RegisterFormTrigger());
@@ -111,11 +111,11 @@ class _BirthDayScreenState extends State<BirthDayScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Congrats(),
+                                builder: (context) => const Congrats(),
                               ));
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
+                        child: const Padding(
+                          padding: EdgeInsets.all(15.0),
                           child: Text(
                             "Next",
                             style: TextStyle(color: Colors.white),

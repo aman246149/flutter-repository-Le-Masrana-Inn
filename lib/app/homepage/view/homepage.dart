@@ -22,13 +22,13 @@ class _HomePageState extends State<HomePage> {
           children: [
             Expanded(
               flex: 3,
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child:
                     Image.asset(fit: BoxFit.cover, "assets/images/practo.png"),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Expanded(
@@ -47,12 +47,12 @@ class _HomePageState extends State<HomePage> {
                         decoration: BoxDecoration(
                             border: Border.all(width: 1, color: Colors.grey),
                             borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
+                                const BorderRadius.all(Radius.circular(10))),
                         child: Row(
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(left: 12.0),
-                              child: Container(
+                              child: SizedBox(
                                 width: 60,
                                 child: DropdownButtonHideUnderline(
                                   child: DropdownButton(
@@ -68,8 +68,8 @@ class _HomePageState extends State<HomePage> {
                                     },
                                     items: languageslist.map((language) {
                                       return DropdownMenuItem(
-                                        child: Text(language),
                                         value: language,
+                                        child: Text(language),
                                       );
                                     }).toList(),
                                   ),
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                                       ));
                                 }
                               },
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   hintText: "Mobile Number",
                                   hintStyle: TextStyle(
@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       TextButton(
                           onPressed: () {},
-                          child: Text("Trouble Signining in?",
+                          child: const Text("Trouble Signining in?",
                               style: TextStyle(
                                   color: Colors.grey,
                                   decoration: TextDecoration.underline)))

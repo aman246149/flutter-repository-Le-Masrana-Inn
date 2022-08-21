@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:practo/app/homepage/view/blocs/login/login_bloc.dart';
 import 'package:practo/app/homepage/view/blocs/otp/otp_bloc.dart';
 import 'package:practo/app/homepage/view/blocs/register/register_bloc.dart';
 import 'package:practo/app/homepage/view/homepage.dart';
-import 'package:practo/app/homepage/view/keypadscreen.dart';
-import 'package:practo/app/homepage/view/otpscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +19,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => OtpBloc(),
+        ),
+        BlocProvider(
+          create: (context) => LoginBloc(),
         ),
         BlocProvider(
           create: (context) => RegisterBloc(),

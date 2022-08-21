@@ -4,7 +4,7 @@ import 'package:practo/app/homepage/view/blocs/otp/otp_bloc.dart';
 import 'package:practo/app/homepage/view/otpscreen.dart';
 
 class KeyPad extends StatefulWidget {
-  KeyPad({Key? key, required this.phoneNumber}) : super(key: key);
+  const KeyPad({Key? key, required this.phoneNumber}) : super(key: key);
   final String phoneNumber;
 
   @override
@@ -35,26 +35,26 @@ class _KeyPadState extends State<KeyPad> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.arrow_back),
-                  SizedBox(
+                  const Icon(Icons.arrow_back),
+                  const SizedBox(
                     height: 20,
                   ),
                   const Text(
                     "Enter your mobile number",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Container(
                     decoration: BoxDecoration(
                         border: Border.all(width: 2, color: Colors.grey),
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                        borderRadius: const BorderRadius.all(Radius.circular(10))),
                     child: Row(
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 12.0),
-                          child: Container(
+                          child: SizedBox(
                             width: 60,
                             child: DropdownButtonHideUnderline(
                               child: DropdownButton(
@@ -70,8 +70,8 @@ class _KeyPadState extends State<KeyPad> {
                                 },
                                 items: languageslist.map((language) {
                                   return DropdownMenuItem(
-                                    child: Text(language),
                                     value: language,
+                                    child: Text(language),
                                   );
                                 }).toList(),
                               ),
@@ -91,7 +91,7 @@ class _KeyPadState extends State<KeyPad> {
                           controller: controller,
                           keyboardType: TextInputType.number,
                           autofocus: true,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: "Mobile Number",
                               hintStyle: TextStyle(
@@ -102,7 +102,7 @@ class _KeyPadState extends State<KeyPad> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   TextButton(
@@ -125,20 +125,20 @@ class _KeyPadState extends State<KeyPad> {
                   SizedBox(
                     width: double.infinity,
                     child: MaterialButton(
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10))),
-                      color: Color(0xffB4B4BD),
+                      color: const Color(0xffB4B4BD),
                       onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => OtpScreen(),
+                              builder: (context) =>  OtpScreen(phoneNumber: widget.phoneNumber),
                             ));
                         BlocProvider.of<OtpBloc>(context).add(
                             SendOtpTrigger(phoneNumber: widget.phoneNumber));
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.all(18.0),
+                      child: const Padding(
+                        padding: EdgeInsets.all(18.0),
                         child: Text(
                           "Continue",
                           style: TextStyle(color: Colors.white),
